@@ -20,6 +20,6 @@ social: false # includes social icons at the bottom of the page
 
 Hi! I am an AI Research Resident at [VinAI Research](https://vinai.io/), advised by Professor [Luu Anh Tuan](https://tuanluu.github.io/). Prior to that, I received my B.E. degree in Computer Engineering from the [Ho Chi Minh City University of Technology](https://hcmut.edu.vn/), Vietnam.
 
-I am broadly interested in Machine Learning and currently focusing on Adversarial Machine Learning in NLP. My long-term goal is to demystify deep neural networks, understand their weaknesses, and improve their robustness.
+I am broadly interested in demystifying deep learning and developing reliable machine learning systems. Currently, I am focusing on explaining the adversarial examples phenomenon and improving adversarial robustness. I am also interested in generative modeling and the applications of causal inference.
 
 This is my [CV](/assets/pdf/CV.pdf).
