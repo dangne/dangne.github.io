@@ -5,13 +5,37 @@
 @use "sass:color";
 
 :root {
+  /* Color Palette */
+  --red-color: #{v.$red-color};
+  --red-color-dark: #{v.$red-color-dark};
+  --orange-color: #{v.$orange-color};
+  --blue-color: #{v.$blue-color};
+  --blue-color-dark: #{v.$blue-color-dark};
+  --cyan-color: #{v.$cyan-color};
+  --light-cyan-color: #{v.$light-cyan-color};
+  --green-color: #{v.$green-color};
+  --green-color-lime: #{v.$green-color-lime};
+  --green-color-dark: #{v.$green-color-dark};
+  --green-color-light: #{v.$green-color-light};
+  --green-color-bright: #{v.$green-color-bright};
+  --purple-color: #{v.$purple-color};
+  --light-purple-color: #{v.$light-purple-color};
+  --pink-color: #{v.$pink-color};
+  --pink-color-light: #{v.$pink-color-light};
+  --yellow-color: #{v.$yellow-color};
+  --grey-color: #{v.$grey-color};
+  --grey-color-light: #{v.$grey-color-light};
+  --grey-color-dark: #{v.$grey-color-dark};
+  --white-color: #{v.$white-color};
+  --black-color: #{v.$black-color};
+
   color-scheme: light;
   --global-bg-color: #{v.$white-color};
   --global-code-bg-color: #{v.$code-bg-color-light};
   --global-text-color: #{v.$black-color};
   --global-text-color-light: #{v.$grey-color};
-  --global-theme-color: #{v.$purple-color};
-  --global-hover-color: #{v.$purple-color};
+  --global-theme-color: #{v.$blue-color};
+  --global-hover-color: #{v.$blue-color};
   --global-hover-text-color: #{v.$white-color};
   --global-footer-bg-color: #{v.$grey-color-dark};
   --global-footer-text-color: #{v.$grey-color-light};
