@@ -10,7 +10,8 @@
       {% else %}
         {% assign redirect = page.redirect | relative_url %}
       {% endif %}
-      <meta http-equiv="refresh" content="3; url={{ redirect }}">
+      {% assign redirect_delay = page.redirect_delay | default: 3 %}
+      <meta http-equiv="refresh" content="{{ redirect_delay }}; url={{ redirect }}">
     {% endif %}
     {% include head.liquid %}
   </head>
@@ -45,6 +46,9 @@
       {% else %}
         {{ content }}
       {% endif %}
+      <div id="notice" style="display: none">
+        <a href="https://clustrmaps.com/site/1bsyh" title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=oN9Srczng_7TiancQ82KpwbDWj3gUG1w_SSih5EZ7pc&cl=ffffff"/></a>
+      </div>
     </div>
 
     <!-- Footer -->

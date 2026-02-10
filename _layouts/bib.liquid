@@ -4,10 +4,30 @@
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
       {%- if entry.abbr -%}
-        {%- if site.data.venues[entry.abbr] -%}
+        {%- assign venue_key = entry.abbr -%}
+        {%- assign venue_series_key = entry.abbr | regex_replace: '\s*\d{4}\s*$', '' -%}
+        {%- assign venue_year = site.data.venues[venue_key] -%}
+        {%- assign venue_series = site.data.venues[venue_series_key] -%}
+
+        {%- if venue_year or venue_series -%}
           {% assign venue_style = null %}
-          {% if site.data.venues[entry.abbr].color != blank %}
-            {% assign venue_style = site.data.venues[entry.abbr].color | prepend: 'style="background-color:' | append: '"' %}
+          {% assign venue_color = null %}
+          {% assign venue_url = null %}
+
+          {%- if venue_year and venue_year.color != blank -%}
+            {% assign venue_color = venue_year.color %}
+          {%- elsif venue_series and venue_series.color != blank -%}
+            {% assign venue_color = venue_series.color %}
+          {%- endif -%}
+
+          {%- if venue_year and venue_year.url != blank -%}
+            {% assign venue_url = venue_year.url %}
+          {%- elsif venue_series and venue_series.url != blank -%}
+            {% assign venue_url = venue_series.url %}
+          {%- endif -%}
+
+          {% if venue_color %}
+            {% assign venue_style = venue_color | prepend: 'style="background-color:' | append: '"' %}
           {%- endif -%}
           <abbr
             class="badge rounded w-100"
@@ -15,8 +35,8 @@
               {{ venue_style }}
             {% endif -%}
           >
-            {% if site.data.venues[entry.abbr].url %}
-              <a href="{{ site.data.venues[entry.abbr].url }}">{{ entry.abbr }}</a>
+            {% if venue_url %}
+              <a href="{{ venue_url }}">{{ entry.abbr }}</a>
             {% else %}
               <div>{{- entry.abbr -}}</div>
             {% endif %}
@@ -46,9 +66,17 @@
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-10{% endif %}">
+  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-10{% else %}col-sm-12{% endif %}">
     <!-- Title -->
-    <div class="title">{{ entry.title }}</div>
+    <div class="title">
+      {{ entry.title }}
+      {% if entry.spotlight == 'true' or entry.spotlight == true %}
+        <span style="color: red; font-weight: bold;">(Spotlight)</span>
+      {% endif %}
+      {% if entry.oral == 'true' or entry.oral == true %}
+        <span style="color: red; font-weight: bold;">(Oral)</span>
+      {% endif %}
+    </div>
     <!-- Author -->
     <div class="author">
       {% assign author_array_size = entry.author_array | size %}
@@ -179,7 +207,7 @@
       {% include hook/bib.liquid %}
     {% endif %}
     {% assign entrytype_text = entrytype | strip_html | strip %}
-    {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entrymonth }}{{ entryyear }}{% endcapture %}
+    {% capture periodical %}{{ entrytype }}{% if entrytype_text != "" and entryyear != "" %}, {% endif %}{{ entryyear }}{% endcapture %}
     <div class="periodical">
       {{ periodical | strip }}
     </div>
