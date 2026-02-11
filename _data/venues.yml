@@ -32,30 +32,30 @@
 
 # ML conferences
 "NeurIPS":
-  color: "var(--green-color)"
+  color: "var(--light-cyan-color)"
 
 "ICLR":
-  color: "var(--green-color-dark)"
+  color: "var(--light-cyan-color)"
 
 "AAAI":
-  color: "var(--green-color-bright)"
-
-"AAMAS":
-  color: "var(--yellow-color)"
+  color: "var(--light-cyan-color)"
 
 # NLP conferences
 "ACL":
   color: "var(--blue-color)"
 
 "EMNLP":
-  color: "var(--blue-color-dark)"
+  color: "var(--blue-color)"
 
 "NAACL":
-  color: "var(--cyan-color)"
+  color: "var(--blue-color)"
 
 "COLM":
-  color: "var(--light-cyan-color)"
+  color: "var(--blue-color)"
 
-# Other conferences
+# Other conferences and preprints
+"AAMAS":
+  color: "var(--blue-color-dark)"
+
 "Preprint":
   color: "var(--grey-color)"
